@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title></title>
+</head>
+<body>
+    <div id="app-container">
+        <div id="settings-panel">
+            <h3>Configuración</h3>
+
+            <div class="control-group">
+                <label>Velocidad Jugador (<span id="val-player">40</span>)</label>
+                <input type="range" id="speed-player" min="10" max="100" value="40">
+            </div>
+
+            <div class="control-group">
+                <label>Velocidad Enemigo (<span id="val-enemy">1</span>)</label>
+                <input type="range" id="speed-enemy" min="0.5" max="5" step="0.1" value="1">
+            </div>
+
+            <div class="control-group">
+                <label>Imagen de Fondo (Sube una imagen)</label>
+                <input type="file" id="bg-image" accept="image/*">
+            </div>
+
+            <div class="control-group">
+                <label>Ruta de la foto del enemigo</label>
+                <input type="text" id="enemy-image" value="beyonce.png" placeholder="Ej. foto.png">
+            </div>
+        </div>
+
+        <div id="game-container">
+            <h1>Escapa de Beyoncé</h1>
+            <div id="game-area">
+                <div id="player"></div>
+                <div id="beyonce"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
