@@ -1,5 +1,5 @@
 const player = document.getElementById('player');
-const beyonce = document.getElementById('beyonce');
+const diddy = document.getElementById('diddy');
 const gameArea = document.getElementById('game-area');
 
 
@@ -11,10 +11,10 @@ const valPlayer = document.getElementById('val-player');
 const valEnemy = document.getElementById('val-enemy');
 
 let playerPosition = { x: 100, y: 100 };
-let beyoncePosition = { x: 300, y: 300 };
+let diddyPosition = { x: 300, y: 300 };
 
 let playerSpeed = parseInt(speedPlayerInput.value);
-let beyonceSpeed = parseFloat(speedEnemyInput.value);
+let diddySpeed = parseFloat(speedEnemyInput.value);
 
 speedPlayerInput.addEventListener('input', (e) => {
     playerSpeed = parseInt(e.target.value);
@@ -22,8 +22,8 @@ speedPlayerInput.addEventListener('input', (e) => {
 });
 
 speedEnemyInput.addEventListener('input', (e) => {
-    beyonceSpeed = parseFloat(e.target.value);
-    valEnemy.textContent = beyonceSpeed;
+    diddySpeed = parseFloat(e.target.value);
+    valEnemy.textContent = diddySpeed;
 });
 
 bgImageInput.addEventListener('change', (e) => {
@@ -38,7 +38,7 @@ bgImageInput.addEventListener('change', (e) => {
 });
 
 enemyImageInput.addEventListener('input', (e) => {
-    beyonce.style.backgroundImage = `url('${e.target.value}')`;
+    diddy.style.backgroundImage = `url('${e.target.value}')`;
 });
 
 window.addEventListener('keydown', (event) => {
@@ -59,17 +59,17 @@ window.addEventListener('keydown', (event) => {
     updatePositions();
 });
 
-function moveBeyonce() {
-    if (beyoncePosition.x < playerPosition.x) {
-        beyoncePosition.x += beyonceSpeed;
-    } else if (beyoncePosition.x > playerPosition.x) {
-        beyoncePosition.x -= beyonceSpeed;
+function moveDiddy() {
+    if (diddyPosition.x < playerPosition.x) {
+        diddyPosition.x += diddySpeed;
+    } else if (diddyPosition.x > playerPosition.x) {
+        diddyPosition.x -= diddySpeed;
     }
 
-    if (beyoncePosition.y < playerPosition.y) {
-        beyoncePosition.y += beyonceSpeed;
-    } else if (beyoncePosition.y > playerPosition.y) {
-        beyoncePosition.y -= beyonceSpeed;
+    if (diddyPosition.y < playerPosition.y) {
+        diddyPosition.y += diddySpeed;
+    } else if (diddyPosition.y > playerPosition.y) {
+        diddyPosition.y -= diddySpeed;
     }
     
     updatePositions();
@@ -78,21 +78,21 @@ function moveBeyonce() {
 
 function updatePositions() {
     player.style.transform = `translate(${playerPosition.x}px, ${playerPosition.y}px)`;
-    beyonce.style.transform = `translate(${beyoncePosition.x}px, ${beyoncePosition.y}px)`;
+    diddy.style.transform = `translate(${diddyPosition.x}px, ${diddyPosition.y}px)`;
 }
 
 function checkCollision() {
-    if (Math.abs(playerPosition.x - beyoncePosition.x) < 50 &&
-        Math.abs(playerPosition.y - beyoncePosition.y) < 50) {
+    if (Math.abs(playerPosition.x - diddyPosition.x) < 50 &&
+        Math.abs(playerPosition.y - diddyPosition.y) < 50) {
         
-        alert('¡Beyonce te atrapó!');
+        alert('¡Diddy te atrapó!');
         playerPosition = { x: 100, y: 100 };
-        beyoncePosition = { x: 300, y: 300 };
+        diddyPosition = { x: 300, y: 300 };
     }
 }
 
 function gameLoop() {
-    moveBeyonce();
+    moveDiddy();
     requestAnimationFrame(gameLoop);
 }
 
